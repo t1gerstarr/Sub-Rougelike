@@ -41,3 +41,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: WaterBG
+    uniqueID: 1449844765
+    locked: 0
+  - name: CaveBG
+    uniqueID: 2449054789
+    locked: 0
+  - name: Platforms
+    uniqueID: 4091767641
+    locked: 0
+  - name: Player
+    uniqueID: 4210769181
+    locked: 0

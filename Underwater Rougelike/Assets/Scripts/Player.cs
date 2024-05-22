@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -14,6 +15,7 @@ public class Player : MonoBehaviour
 
     bool movingHorizontal;
     bool movingVertical;
+    
     
     void Start()
     {
@@ -47,22 +49,30 @@ public class Player : MonoBehaviour
 
         animator.SetBool("isMovingH", movingHorizontal);
         animator.SetBool("isMovingV", movingVertical);
+        
+
     }
 
     void FlipSprite()
     {
-        if (moveInput.x > 0)
-        {
-            playerSprite.flipX = false;
-        }
-        else if (moveInput.x < 0)
-        {
-            playerSprite.flipX = true;
-        }
+        
+        bool moveLeft = moveInput.x < 0;
+        bool moveDown = moveInput.y < 0;
+        bool moveUp = moveInput.y > 0;
+        
+        playerSprite.flipX = moveLeft;
 
-        if (moveInput.y < 0)
+        if (moveLeft && moveDown)
         {
-            transform.rotation = Quaternion.Euler(0, 0, 90);
+            transform.rotation = Quaternion.Euler(0, 0, 145);
+        }
+        else if (moveDown)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, -145);
+        }
+        else if (moveUp)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 20);
         }
         else
         {

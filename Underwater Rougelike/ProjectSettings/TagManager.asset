@@ -47,7 +47,7 @@ TagManager:
   - name: CaveBG
     uniqueID: 2449054789
     locked: 0
-  - name: Platforms
+  - name: Level Borders
     uniqueID: 4091767641
     locked: 0
   - name: Player

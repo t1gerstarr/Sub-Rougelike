@@ -53,14 +53,14 @@ public class Player : MonoBehaviour
 
     }
 
+    // This creates some Bools to check the direction of the player. It then uses these Bools through a number of IF Statements to check how the player is moving and rotate the sprite accordingly.
     void FlipSprite()
     {
-        
         bool moveLeft = moveInput.x < 0;
         bool moveDown = moveInput.y < 0;
         bool moveUp = moveInput.y > 0;
         
-        playerSprite.flipX = moveLeft;
+        playerSprite.flipX = moveLeft; // Flips the sprite along the X-axis when moveLeft is True
 
         if (moveLeft && moveDown)
         {

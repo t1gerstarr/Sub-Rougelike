@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Enemies
+  - ExploFish
   layers:
   - Default
   - TransparentFX
@@ -49,6 +51,9 @@ TagManager:
     locked: 0
   - name: Level Borders
     uniqueID: 4091767641
+    locked: 0
+  - name: Enemies
+    uniqueID: 913872107
     locked: 0
   - name: Player
     uniqueID: 4210769181

@@ -12,15 +12,17 @@ public class Enemies : MonoBehaviour
 
     Animator animator;
     SpriteRenderer spriterenderer;
+    Rigidbody2D myRigidBody;
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
         spriterenderer = GetComponent<SpriteRenderer>();
+        myRigidBody = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate() // fixed update because I am dealing with physics and need precise updates
     {
         distance = Vector2.Distance(transform.position, player.transform.position);
         Vector2 direction = player.transform.position - transform.position;
@@ -29,13 +31,13 @@ public class Enemies : MonoBehaviour
         if(distance < distanceBetween)
         {
             animator.SetBool("isMoving", true);
-            transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, speed * Time.deltaTime);
-            
+            myRigidBody.velocity = direction * speed;
+
             if (direction.x < 0)
             {
                 spriterenderer.flipX = true;
             }
-            else if (direction.x > 0) 
+            else if (direction.x > 0)
             {
                 spriterenderer.flipX = false;
             }
@@ -43,6 +45,7 @@ public class Enemies : MonoBehaviour
         else
         {
             animator.SetBool("isMoving", false);
+            myRigidBody.velocity = Vector2.zero;
         }
     }
 }

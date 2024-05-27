@@ -23,6 +23,8 @@ public class Player : MonoBehaviour
         animator = GetComponent<Animator>(); // Initialises the Animator variable
         previousPosition = transform.position; // Initialises the previousPosition with the inital position of player
         playerSprite = GetComponent<SpriteRenderer>();
+
+        myRigidBody2D.freezeRotation = true;
     }
 
     void FixedUpdate()

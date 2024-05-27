@@ -47,36 +47,32 @@ public class Player : MonoBehaviour
         Vector2 playerVelocity = new Vector2 (moveInput.x * movementSpeed, moveInput.y * movementSpeed);
         myRigidBody2D.velocity = playerVelocity;
 
-        animator.SetBool("isMovingH", movingHorizontal);
-        animator.SetBool("isMovingV", movingVertical);
+        animator.SetBool("isHorizontal", movingHorizontal);
+        animator.SetBool("isVertical", movingVertical);
         
 
     }
 
-    // This creates some Bools to check the direction of the player. It then uses these Bools through a number of IF Statements to check how the player is moving and rotate the sprite accordingly.
+    // This checks if the playe is moving down and to a specific direction (left or right). If so, it rotates the player accordingly.
     void FlipSprite()
     {
-        bool moveLeft = moveInput.x < 0;
-        bool moveDown = moveInput.y < 0;
-        bool moveUp = moveInput.y > 0;
-        
-        playerSprite.flipX = moveLeft; // Flips the sprite along the X-axis when moveLeft is True
+        playerSprite.flipX = moveInput.x < 0;
 
-        if (moveLeft && moveDown)
+        float rotationAngle = 0;
+
+        if (moveInput.y < 0)
         {
-            transform.rotation = Quaternion.Euler(0, 0, 145);
+            rotationAngle = moveInput.x < 0 ? 45 : moveInput.x > 0 ? -45 : -145; // ? and : are used in place of 'else if' statements to compact my code and help me avoid too many 'if' statements.
         }
-        else if (moveDown)
+        else if (Input.GetKey(KeyCode.A) && moveInput.y > 0)
         {
-            transform.rotation = Quaternion.Euler(0, 0, -145);
+            rotationAngle = -20;
         }
-        else if (moveUp)
+        else if (moveInput.y > 0)
         {
-            transform.rotation = Quaternion.Euler(0, 0, 20);
+            rotationAngle = 20;
         }
-        else
-        {
-            transform.rotation = Quaternion.Euler(0, 0, 0);
-        }
+
+        transform.rotation = Quaternion.Euler(0, 0, rotationAngle);
     }
 }

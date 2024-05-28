@@ -4,11 +4,17 @@ using UnityEngine;
 
 public class Enemies : MonoBehaviour
 {
+    // Public variables to use on ALL enemies
     public GameObject player;
     public float speed;
-    public float distanceBetween;
+    public float distanceToFollow;
+    public float distanceToAttack;
 
+    // Private variables to use on ALL enemies
     private float distance;
+
+    // ExploFish variables
+    [SerializeField] float destroySpeed;
 
     Animator animator;
     SpriteRenderer spriterenderer;
@@ -19,16 +25,23 @@ public class Enemies : MonoBehaviour
         animator = GetComponent<Animator>();
         spriterenderer = GetComponent<SpriteRenderer>();
         myRigidBody = GetComponent<Rigidbody2D>();
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
-    void FixedUpdate() // fixed update because I am dealing with physics and need precise updates
+    void Update()
+    {
+        EnemyMove();
+        ExploFishAttack();
+    }
+
+    void EnemyMove()
     {
         distance = Vector2.Distance(transform.position, player.transform.position);
         Vector2 direction = player.transform.position - transform.position;
         direction.Normalize();
 
-        if(distance < distanceBetween)
+        if(distance < distanceToFollow && distance > distanceToAttack)
         {
             animator.SetBool("isMoving", true);
             myRigidBody.velocity = direction * speed;
@@ -46,6 +59,17 @@ public class Enemies : MonoBehaviour
         {
             animator.SetBool("isMoving", false);
             myRigidBody.velocity = Vector2.zero;
+        }
+    }
+
+    void ExploFishAttack()
+    {
+        if (tag == "ExploFish" && distance < distanceToAttack)
+        {
+            animator.SetBool("isMoving", false);
+            animator.SetBool("isAttacking", true);
+
+            Destroy(gameObject, destroySpeed);
         }
     }
 }

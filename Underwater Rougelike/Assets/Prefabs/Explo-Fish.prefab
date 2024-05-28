@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 3744778468721149199}
   - component: {fileID: 3368031213020347572}
   - component: {fileID: 2118518171309298305}
-  - component: {fileID: 1587358660787031029}
   - component: {fileID: 6134432167988423396}
+  - component: {fileID: 1782601714804880544}
   m_Layer: 0
   m_Name: Explo-Fish
   m_TagString: ExploFish
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 1230977093648615796}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 13.288157, y: -1.9498334, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -144,22 +144,6 @@ CircleCollider2D:
   m_Offset: {x: 0.029151142, y: -0.018437505}
   serializedVersion: 2
   m_Radius: 0.5211037
---- !u!114 &1587358660787031029
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1230977093648615796}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 976a08cc0b6cb444fb0b6b4eefd10d19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  speed: 6
-  distanceBetween: 22
-  attackDistance: 5
 --- !u!50 &6134432167988423396
 Rigidbody2D:
   serializedVersion: 4
@@ -187,3 +171,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1782601714804880544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1230977093648615796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 976a08cc0b6cb444fb0b6b4eefd10d19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  speed: 6
+  distanceToFollow: 22
+  distanceToAttack: 2
+  destroySpeed: 0.5

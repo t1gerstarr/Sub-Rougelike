@@ -8922,33 +8922,18 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1230977093648615796, guid: 211229e1be31e7e478d4585808286b3c, type: 3}
   m_PrefabInstance: {fileID: 3428387346947783108}
   m_PrefabAsset: {fileID: 0}
---- !u!50 &1940840088
-Rigidbody2D:
-  serializedVersion: 4
+--- !u!114 &1940840094
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1940840082}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ec168b87f3fd6c4cbfe95caa6f5b1ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &865914347625542735
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9066,13 +9051,17 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 401823852}
+    - target: {fileID: 1587358660787031029, guid: 211229e1be31e7e478d4585808286b3c, type: 3}
+      propertyPath: attackDistance
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1230977093648615796, guid: 211229e1be31e7e478d4585808286b3c, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1940840088}
+      addedObject: {fileID: 1940840094}
   m_SourcePrefab: {fileID: 100100000, guid: 211229e1be31e7e478d4585808286b3c, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

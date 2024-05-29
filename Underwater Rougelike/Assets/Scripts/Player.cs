@@ -31,6 +31,7 @@ public class Player : MonoBehaviour
     {
         Movement();
         FlipSprite();
+        Attacking();
         Vector2 currentPosition = transform.position;
 
         movingHorizontal = Mathf.Abs(currentPosition.x - previousPosition.x) > Mathf.Epsilon;
@@ -51,8 +52,6 @@ public class Player : MonoBehaviour
 
         animator.SetBool("isHorizontal", movingHorizontal);
         animator.SetBool("isVertical", movingVertical);
-        
-
     }
 
     // This checks if the playe is moving down and to a specific direction (left or right). If so, it rotates the player accordingly.
@@ -76,5 +75,17 @@ public class Player : MonoBehaviour
         }
 
         transform.rotation = Quaternion.Euler(0, 0, rotationAngle);
+    }
+
+    void Attacking()
+    {
+        if (Input.GetKey(KeyCode.Mouse0))
+        {
+            animator.SetBool("isAttacking", true);
+        }
+        else
+        {
+            animator.SetBool("isAttacking", false);
+        }
     }
 }

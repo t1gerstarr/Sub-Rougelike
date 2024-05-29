@@ -187,4 +187,6 @@ MonoBehaviour:
   speed: 6
   distanceToFollow: 22
   distanceToAttack: 2
+  seperationRadius: 2
+  seperationStrength: 2
   destroySpeed: 0.5

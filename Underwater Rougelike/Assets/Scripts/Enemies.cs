@@ -7,13 +7,13 @@ public class Enemies : MonoBehaviour
     // Public variables to use on ALL enemies
     public GameObject player;
     public float speed;
-    public float distanceToFollow;
     public float distanceToAttack;
     [SerializeField] float seperationRadius; // min distance between enemies
     [SerializeField] float seperationStrength; // strength of the force pushing them away from each other
 
     // Private variables to use on ALL enemies
     private float distance;
+    private bool followPlayer = false;
 
     // ExploFish variables
     [SerializeField] float destroySpeed;
@@ -28,14 +28,26 @@ public class Enemies : MonoBehaviour
         spriterenderer = GetComponent<SpriteRenderer>();
         myRigidBody = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player");
+
+        // Start coroutine to wait before following player
+        StartCoroutine(WaitBeforeFollowing()); 
     }
 
     // Update is called once per frame
     void Update()
     {
-        EnemyMove();
-        ExploFishAttack();
+        if (followPlayer)
+        {
+            EnemyMove();
+            ExploFishAttack();
+        }
     }
+
+    IEnumerator WaitBeforeFollowing()
+        {
+            yield return new WaitForSeconds(2);
+            followPlayer = true;
+        }
 
     void EnemyMove()
     {
@@ -43,7 +55,7 @@ public class Enemies : MonoBehaviour
         Vector2 direction = player.transform.position - transform.position;
         direction.Normalize();
 
-        if(distance < distanceToFollow && distance > distanceToAttack)
+        if(distance > distanceToAttack)
         {
             animator.SetBool("isMoving", true);
             

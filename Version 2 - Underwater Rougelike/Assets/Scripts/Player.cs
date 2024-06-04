@@ -12,9 +12,11 @@ public class Player : MonoBehaviour
     Vector2 moveInput; // Gets the vector2 (movement on a 2D plane) and assigns it to the moveInput variable
     private Vector2 previousPosition;
     Rigidbody2D myRigidBody2D; // Making a variable for the players Rigidbody
-
+    public float playerHealth = 100f;
     bool movingHorizontal;
     bool movingVertical;
+    public bool isAlive = true;
+    bool gameOver = false;
     
     
     void Start()
@@ -29,16 +31,26 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
-        Movement();
-        FlipSprite();
-        Attacking();
-        Vector2 currentPosition = transform.position;
+        if (isAlive)
+        {
+            Movement();
+            FlipSprite();
+            Attacking();
+            Vector2 currentPosition = transform.position;
 
-        movingHorizontal = Mathf.Abs(currentPosition.x - previousPosition.x) > Mathf.Epsilon;
-        movingVertical = Mathf.Abs(currentPosition.y - previousPosition.y) > Mathf.Epsilon;
+            movingHorizontal = Mathf.Abs(currentPosition.x - previousPosition.x) > Mathf.Epsilon;
+            movingVertical = Mathf.Abs(currentPosition.y - previousPosition.y) > Mathf.Epsilon;
 
-        previousPosition = currentPosition;
+            previousPosition = currentPosition;
+        }
+        else
+        {
+            Destroy(gameObject);
+            gameOver = true;
+        }
     }
+
+        
 
     void OnMove(InputValue value)
     {

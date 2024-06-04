@@ -14,6 +14,7 @@ public class Enemies : MonoBehaviour
     // Private variables to use on ALL enemies
     private float distance;
     private bool followPlayer = false;
+    private bool damageDealt = false;
 
     // ExploFish variables
     [SerializeField] float destroySpeed;
@@ -21,13 +22,23 @@ public class Enemies : MonoBehaviour
     Animator animator;
     SpriteRenderer spriterenderer;
     Rigidbody2D myRigidBody;
+
+    // Player Script
+    private Player playerscript; 
+
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
         spriterenderer = GetComponent<SpriteRenderer>();
         myRigidBody = GetComponent<Rigidbody2D>();
+
+        // Find player gameobject and access script
         player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null)
+        {
+            playerscript = player.GetComponent<Player>();
+        }
 
         // Start coroutine to wait before following player
         StartCoroutine(WaitBeforeFollowing()); 
@@ -51,6 +62,8 @@ public class Enemies : MonoBehaviour
 
     void EnemyMove()
     {
+        if (player == null) return; // returns value when player = null (player is dead)
+
         distance = Vector2.Distance(transform.position, player.transform.position);
         Vector2 direction = player.transform.position - transform.position;
         direction.Normalize();
@@ -108,10 +121,27 @@ public class Enemies : MonoBehaviour
 
     void ExploFishAttack()
     {
-        if (tag == "ExploFish" && distance < distanceToAttack)
+        if (player == null || tag == "ExploFish" && distance < distanceToAttack && !damageDealt)
         {
             animator.SetBool("isMoving", false);
             animator.SetBool("isAttacking", true);
+
+            // Access playerHealth
+            if (playerscript != null)
+            {
+                playerscript.playerHealth -=10f; // Damage value
+                Debug.Log("Player Health: " + playerscript.playerHealth);
+                damageDealt = true;
+
+                if (playerscript.playerHealth <= 0)
+                {
+                    playerscript.isAlive = false;
+                }
+            }
+            else
+            {
+                
+            }
 
             Destroy(gameObject, destroySpeed);
         }

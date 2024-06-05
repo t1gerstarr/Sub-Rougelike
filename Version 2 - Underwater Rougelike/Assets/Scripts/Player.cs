@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     bool movingVertical;
     public bool isAlive = true;
     bool gameOver = false;
+    bool isDamaged = false; // track when player is hit
     
     
     void Start()
@@ -43,7 +44,7 @@ public class Player : MonoBehaviour
 
             previousPosition = currentPosition;
         }
-        else
+        else if (!isAlive)
         {
             Destroy(gameObject);
             gameOver = true;
@@ -59,11 +60,15 @@ public class Player : MonoBehaviour
 
     void Movement()
     {
-        Vector2 playerVelocity = new Vector2 (moveInput.x * movementSpeed, moveInput.y * movementSpeed);
-        myRigidBody2D.velocity = playerVelocity;
+        if(!isDamaged)
+        {
+            Vector2 playerVelocity = new Vector2 (moveInput.x * movementSpeed, moveInput.y * movementSpeed);
+            myRigidBody2D.velocity = playerVelocity;
 
-        animator.SetBool("isHorizontal", movingHorizontal);
-        animator.SetBool("isVertical", movingVertical);
+            animator.SetBool("isHorizontal", movingHorizontal);
+            animator.SetBool("isVertical", movingVertical);
+        }
+        
     }
 
     // This checks if the playe is moving down and to a specific direction (left or right). If so, it rotates the player accordingly.
@@ -99,5 +104,31 @@ public class Player : MonoBehaviour
         {
             animator.SetBool("isAttacking", false);
         }
+    }
+
+    public void TakeDamage(float damage)
+    {
+        playerHealth -= damage;
+        Debug.Log("Player Health: " + playerHealth);
+
+        if (playerHealth <= 0)
+        {
+            isAlive = false;
+        }
+
+        // trigger damage animation
+        if (!isDamaged)
+        {
+            StartCoroutine(TriggerDamageAnimation());
+        }
+    }
+
+    private IEnumerator TriggerDamageAnimation()
+    {
+        isDamaged = true;
+        animator.SetBool("isDamaged", true);
+        yield return new WaitForSeconds(0.4f);
+        animator.SetBool("isDamaged", false);
+        isDamaged = false;
     }
 }

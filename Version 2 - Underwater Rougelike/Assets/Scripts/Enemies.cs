@@ -10,11 +10,12 @@ public class Enemies : MonoBehaviour
     public float distanceToAttack;
     [SerializeField] float seperationRadius; // min distance between enemies
     [SerializeField] float seperationStrength; // strength of the force pushing them away from each other
+    public bool damageDealt = false;
 
     // Private variables to use on ALL enemies
     private float distance;
     private bool followPlayer = false;
-    private bool damageDealt = false;
+    
 
     // ExploFish variables
     [SerializeField] float destroySpeed;
@@ -121,26 +122,23 @@ public class Enemies : MonoBehaviour
 
     void ExploFishAttack()
     {
-        if (player == null || tag == "ExploFish" && distance < distanceToAttack && !damageDealt)
+        if (player == null) return ;
+
+        if (tag == "ExploFish" && distance < distanceToAttack && !damageDealt)
         {
             animator.SetBool("isMoving", false);
             animator.SetBool("isAttacking", true);
 
-            // Access playerHealth
+            //Access Player Health
             if (playerscript != null)
             {
-                playerscript.playerHealth -=10f; // Damage value
-                Debug.Log("Player Health: " + playerscript.playerHealth);
+                playerscript.TakeDamage(10f);
                 damageDealt = true;
 
                 if (playerscript.playerHealth <= 0)
                 {
                     playerscript.isAlive = false;
                 }
-            }
-            else
-            {
-                
             }
 
             Destroy(gameObject, destroySpeed);

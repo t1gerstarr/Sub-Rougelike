@@ -18,6 +18,8 @@ public class Player : MonoBehaviour
     public bool isAlive = true;
     bool gameOver = false;
     bool isDamaged = false; // track when player is hit
+    [SerializeField] float destroySpeed = 1;
+    bool attack = true;
     
     
     void Start()
@@ -31,6 +33,11 @@ public class Player : MonoBehaviour
     }
 
     void FixedUpdate()
+    {
+        Game();
+    }
+
+    void Game()
     {
         if (isAlive)
         {
@@ -46,7 +53,7 @@ public class Player : MonoBehaviour
         }
         else if (!isAlive)
         {
-            Destroy(gameObject);
+            Destroy(gameObject, destroySpeed);
             gameOver = true;
         }
     }
@@ -99,11 +106,37 @@ public class Player : MonoBehaviour
         if (Input.GetKey(KeyCode.Mouse0))
         {
             animator.SetBool("isAttacking", true);
+            
+            if (attack)
+            {
+                float closestEnemyDistance = GetClosestEnemyDistance();
+                if (closestEnemyDistance <= 1.5f)
+                {
+                    Debug.Log("Enemy is at: " + closestEnemyDistance);
+                }
+            }
         }
         else
         {
             animator.SetBool("isAttacking", false);
         }
+    }
+
+    float GetClosestEnemyDistance()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        float closestDistance = Mathf.Infinity;
+
+        foreach (GameObject enemy in enemies)
+        {
+            float distance = Vector2.Distance(transform.position, enemy.transform.position);
+            if (distance < closestDistance)
+            {
+                closestDistance = distance;
+            }
+        }
+
+        return closestDistance;
     }
 
     public void TakeDamage(float damage)
@@ -114,6 +147,7 @@ public class Player : MonoBehaviour
         if (playerHealth <= 0)
         {
             isAlive = false;
+            animator.SetTrigger("isDead");
         }
 
         // trigger damage animation

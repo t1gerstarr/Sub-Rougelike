@@ -48,7 +48,7 @@ public class Enemies : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (followPlayer)
+        if (followPlayer && playerscript.isAlive)
         {
             EnemyMove();
             ExploFishAttack();

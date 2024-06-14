@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
     bool gameOver = false;
     bool isDamaged = false; // track when player is hit
     [SerializeField] float destroySpeed = 1;
-    bool attack = true;
+    bool attack = false;
     
     
     void Start()
@@ -106,6 +106,7 @@ public class Player : MonoBehaviour
         if (Input.GetKey(KeyCode.Mouse0))
         {
             animator.SetBool("isAttacking", true);
+            attack = true;
             
             if (attack)
             {
@@ -124,7 +125,7 @@ public class Player : MonoBehaviour
 
     float GetClosestEnemyDistance()
     {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemies");
         float closestDistance = Mathf.Infinity;
 
         foreach (GameObject enemy in enemies)

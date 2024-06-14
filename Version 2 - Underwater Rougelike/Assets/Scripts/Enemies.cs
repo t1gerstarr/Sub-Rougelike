@@ -15,6 +15,9 @@ public class Enemies : MonoBehaviour
     // Private variables to use on ALL enemies
     private float distance;
     private bool followPlayer = false;
+
+    // Enemy type variable
+    public EnemyType enemyType;
     
 
     // ExploFish variables
@@ -26,6 +29,11 @@ public class Enemies : MonoBehaviour
 
     // Player Script
     private Player playerscript; 
+
+    public enum EnemyType
+    {
+        ExploFish
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -56,10 +64,10 @@ public class Enemies : MonoBehaviour
     }
 
     IEnumerator WaitBeforeFollowing()
-        {
-            yield return new WaitForSeconds(2);
-            followPlayer = true;
-        }
+    {
+        yield return new WaitForSeconds(2);
+        followPlayer = true;
+    }
 
     void EnemyMove()
     {
@@ -75,7 +83,7 @@ public class Enemies : MonoBehaviour
             
             // seperation between enemies
             Vector2 seperationForce = Vector2.zero;
-            GameObject[] allEnemies = GameObject.FindGameObjectsWithTag("ExploFish");
+            GameObject[] allEnemies = GameObject.FindGameObjectsWithTag("Enemies");
             foreach (GameObject enemy in allEnemies)
             {
                 if (enemy != gameObject)
@@ -124,7 +132,7 @@ public class Enemies : MonoBehaviour
     {
         if (player == null) return ;
 
-        if (tag == "ExploFish" && distance < distanceToAttack && !damageDealt)
+        if (enemyType == EnemyType.ExploFish && distance < distanceToAttack && !damageDealt)
         {
             animator.SetBool("isMoving", false);
             animator.SetBool("isAttacking", true);

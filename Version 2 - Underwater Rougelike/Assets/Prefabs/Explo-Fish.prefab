@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1782601714804880544}
   m_Layer: 0
   m_Name: Explo-Fish
-  m_TagString: ExploFish
+  m_TagString: Enemies
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -185,8 +185,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   speed: 6
-  distanceToFollow: 22
   distanceToAttack: 2
   seperationRadius: 2
   seperationStrength: 2
+  damageDealt: 0
+  enemyType: 0
   destroySpeed: 0.5

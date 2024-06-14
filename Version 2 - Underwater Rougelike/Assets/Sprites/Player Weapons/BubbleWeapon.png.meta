@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 128ec4db74dd29c44886cc3b0ba4c903
+guid: fe88df0b3bb1aa84393dd1256f982ae9
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: LeapFrog - SpongeBob SquarePants Fists of Foam LeapFrog Didj - Bubble_0
+      name: BubbleWeapon_0
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6f2ef1d9a6ee4fb4fbf4bc36a7898360
-      internalID: 864405637
+      spriteID: 814dff08f91e86e48ae6dcfc50383424
+      internalID: 674772914
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LeapFrog - SpongeBob SquarePants Fists of Foam LeapFrog Didj - Bubble_1
+      name: BubbleWeapon_1
       rect:
         serializedVersion: 2
         x: 32
@@ -145,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b0a1370ac02a9c84dadd1c672fc517b7
-      internalID: 521172848
+      spriteID: 48364255bfcb6eb409bca56643d844e9
+      internalID: 882669123
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LeapFrog - SpongeBob SquarePants Fists of Foam LeapFrog Didj - Bubble_2
+      name: BubbleWeapon_2
       rect:
         serializedVersion: 2
         x: 64
@@ -166,14 +166,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 01aa8ca490028e049b4beffbc5e91796
-      internalID: -30907056
+      spriteID: 7007e9aeca9dc104bbf04e794d6750d8
+      internalID: -49623900
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LeapFrog - SpongeBob SquarePants Fists of Foam LeapFrog Didj - Bubble_3
+      name: BubbleWeapon_3
       rect:
         serializedVersion: 2
         x: 96
@@ -187,14 +187,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3deb98255a7bb24418eda4c5dad092b3
-      internalID: 1915421634
+      spriteID: 8cdfdcf0d4d8d8645b1b3f5f70b2c1e7
+      internalID: -1369976573
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LeapFrog - SpongeBob SquarePants Fists of Foam LeapFrog Didj - Bubble_4
+      name: BubbleWeapon_4
       rect:
         serializedVersion: 2
         x: 128
@@ -208,14 +208,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ce54205d7a01beb4da96f604475e9f92
-      internalID: -531692674
+      spriteID: 9929ca4e4abeed442963b3c10f166f91
+      internalID: 1802332931
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LeapFrog - SpongeBob SquarePants Fists of Foam LeapFrog Didj - Bubble_5
+      name: BubbleWeapon_5
       rect:
         serializedVersion: 2
         x: 160
@@ -229,14 +229,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 87734c0e6b50f514fb0d45e3c0644f88
-      internalID: 1402019289
+      spriteID: 06049df24c380bd46883368497cb2251
+      internalID: 1966501203
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LeapFrog - SpongeBob SquarePants Fists of Foam LeapFrog Didj - Bubble_6
+      name: BubbleWeapon_6
       rect:
         serializedVersion: 2
         x: 192
@@ -250,8 +250,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 151a831e97521284f94072ffdc61a3b8
-      internalID: 756688834
+      spriteID: 22f7eb7d3b7944c4e989ed918499f71b
+      internalID: 1427759015
       vertices: []
       indices: 
       edges: []
@@ -267,16 +267,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      LeapFrog - SpongeBob SquarePants Fists of Foam LeapFrog Didj - Bubble_0: 864405637
-      LeapFrog - SpongeBob SquarePants Fists of Foam LeapFrog Didj - Bubble_1: 521172848
-      LeapFrog - SpongeBob SquarePants Fists of Foam LeapFrog Didj - Bubble_2: -30907056
-      LeapFrog - SpongeBob SquarePants Fists of Foam LeapFrog Didj - Bubble_3: 1915421634
-      LeapFrog - SpongeBob SquarePants Fists of Foam LeapFrog Didj - Bubble_4: -531692674
-      LeapFrog - SpongeBob SquarePants Fists of Foam LeapFrog Didj - Bubble_5: 1402019289
-      LeapFrog - SpongeBob SquarePants Fists of Foam LeapFrog Didj - Bubble_6: 756688834
-      LeapFrog - SpongeBob SquarePants Fists of Foam LeapFrog Didj - Bubble_7: 67480030
-      LeapFrog - SpongeBob SquarePants Fists of Foam LeapFrog Didj - Bubble_8: -711897107
-      LeapFrog - SpongeBob SquarePants Fists of Foam LeapFrog Didj - Bubble_9: 74107418
+      BubbleWeapon_0: 674772914
+      BubbleWeapon_1: 882669123
+      BubbleWeapon_2: -49623900
+      BubbleWeapon_3: -1369976573
+      BubbleWeapon_4: 1802332931
+      BubbleWeapon_5: 1966501203
+      BubbleWeapon_6: 1427759015
+      BubbleWeapon_7: -1531261467
+      BubbleWeapon_8: 2125807916
+      BubbleWeapon_9: -1499446781
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

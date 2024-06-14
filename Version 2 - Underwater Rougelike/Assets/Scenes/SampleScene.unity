@@ -6445,6 +6445,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &464264640 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8990675158095247076, guid: 6dee398ec30ea4a4a81a81c735b77361, type: 3}
+  m_PrefabInstance: {fileID: 865914347625542735}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -8971,8 +8976,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 956879059830948711, guid: 6dee398ec30ea4a4a81a81c735b77361, type: 3}
+      propertyPath: bubble
+      value: 
+      objectReference: {fileID: 3460207882240790183, guid: b1c6d6da46a7d6d46b39e8ab7a95ec7c, type: 3}
+    - target: {fileID: 956879059830948711, guid: 6dee398ec30ea4a4a81a81c735b77361, type: 3}
+      propertyPath: bubbleGun
+      value: 
+      objectReference: {fileID: 464264640}
+    - target: {fileID: 956879059830948711, guid: 6dee398ec30ea4a4a81a81c735b77361, type: 3}
       propertyPath: destroySpeed
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3573856381905620742, guid: 6dee398ec30ea4a4a81a81c735b77361, type: 3}
+      propertyPath: m_Name
+      value: BubbleGun
       objectReference: {fileID: 0}
     - target: {fileID: 5150950225273754206, guid: 6dee398ec30ea4a4a81a81c735b77361, type: 3}
       propertyPath: m_Name

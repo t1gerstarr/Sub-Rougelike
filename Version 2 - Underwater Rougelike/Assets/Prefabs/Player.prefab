@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8990675158095247076}
   m_Layer: 0
-  m_Name: Bubbles
+  m_Name: BubbleGun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -220,6 +220,8 @@ MonoBehaviour:
   playerHealth: 100
   isAlive: 1
   destroySpeed: 1
+  bubble: {fileID: 3460207882240790183, guid: b1c6d6da46a7d6d46b39e8ab7a95ec7c, type: 3}
+  bubbleGun: {fileID: 8990675158095247076}
 --- !u!114 &8082712110757483583
 MonoBehaviour:
   m_ObjectHideFlags: 0

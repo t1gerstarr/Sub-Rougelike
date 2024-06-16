@@ -13,7 +13,7 @@ public class BubbleBullet : MonoBehaviour
     {
         myRigidBody = GetComponent<Rigidbody2D>();
         player = FindObjectOfType<Player>();
-        xSpeed = player.transform.localScale.x * bubbleSpeed;
+        xSpeed = player.GetLastXDirection() * bubbleSpeed;
     }
 
     // Update is called once per frame

@@ -150,4 +150,9 @@ public class Player : MonoBehaviour
         animator.SetBool("isDamaged", false);
         isDamaged = false;
     }
+
+    public float GetLastXDirection()
+    {
+        return lastXDirection;
+    }
 }

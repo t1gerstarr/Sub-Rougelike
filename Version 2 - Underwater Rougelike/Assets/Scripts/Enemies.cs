@@ -23,7 +23,9 @@ public class Enemies : MonoBehaviour
     // ExploFish variables
     [SerializeField] float destroySpeed;
 
-    Animator animator;
+    public float health = 10;
+
+    public Animator animator;
     SpriteRenderer spriterenderer;
     Rigidbody2D myRigidBody;
 

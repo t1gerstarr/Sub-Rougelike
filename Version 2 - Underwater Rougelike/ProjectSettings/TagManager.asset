@@ -6,11 +6,12 @@ TagManager:
   tags:
   - Enemies
   - ExploFish
+  - LvlBorder
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - LevelBorder
   - Water
   - UI
   - Enemies

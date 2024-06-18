@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Version 2 - Underwater Rougelike.sln"
+    "dotnet.defaultSolution": "Version 3 - Underwater Rougelike.sln"
 }

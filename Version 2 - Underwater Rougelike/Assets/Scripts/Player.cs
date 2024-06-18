@@ -46,13 +46,12 @@ public class Player : MonoBehaviour
         {
             Movement();
             FlipSprite();
-            Attacking();
             Vector2 currentPosition = transform.position;
 
             movingHorizontal = Mathf.Abs(currentPosition.x - previousPosition.x) > Mathf.Epsilon;
             movingVertical = Mathf.Abs(currentPosition.y - previousPosition.y) > Mathf.Epsilon;
 
-            if (movingHorizontal)
+            if (moveInput.x != 0)
             {
                 lastXDirection = moveInput.x;
             }
@@ -114,14 +113,6 @@ public class Player : MonoBehaviour
         }
 
         transform.rotation = Quaternion.Euler(0, 0, rotationAngle);
-    }
-
-    void Attacking()
-    {
-        if (Input.GetKey(KeyCode.Mouse0))
-        {
-            Instantiate(bubble, bubbleGun.position, transform.rotation);
-        }
     }
 
     public void TakeDamage(float damage)

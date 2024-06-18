@@ -140,7 +140,7 @@ public class Enemies : MonoBehaviour
             //Access Player Health
             if (playerscript != null)
             {
-                playerscript.TakeDamage(0f);
+                playerscript.TakeDamage(10f);
                 damageDealt = true;
 
                 if (playerscript.playerHealth <= 0)

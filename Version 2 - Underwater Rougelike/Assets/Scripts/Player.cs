@@ -51,7 +51,7 @@ public class Player : MonoBehaviour
             movingHorizontal = Mathf.Abs(currentPosition.x - previousPosition.x) > Mathf.Epsilon;
             movingVertical = Mathf.Abs(currentPosition.y - previousPosition.y) > Mathf.Epsilon;
 
-            if (moveInput.x != 0)
+            if (movingHorizontal)
             {
                 lastXDirection = moveInput.x;
             }

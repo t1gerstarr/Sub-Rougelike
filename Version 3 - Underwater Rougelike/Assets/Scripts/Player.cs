@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -16,7 +17,6 @@ public class Player : MonoBehaviour
     bool movingHorizontal;
     bool movingVertical;
     public bool isAlive = true;
-    bool gameOver = false;
     bool isDamaged = false; // track when player is hit
     [SerializeField] float destroySpeed = 1;
     [SerializeField] GameObject bubble;
@@ -61,7 +61,7 @@ public class Player : MonoBehaviour
         else if (!isAlive)
         {
             Destroy(gameObject, destroySpeed);
-            gameOver = true;
+            SceneManager.LoadScene("DeathScreen");
         }
     }
 

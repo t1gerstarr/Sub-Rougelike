@@ -60,8 +60,7 @@ public class Player : MonoBehaviour
         }
         else if (!isAlive)
         {
-            Destroy(gameObject, destroySpeed);
-            SceneManager.LoadScene("DeathScreen");
+            Dead();
         }
     }
 
@@ -145,5 +144,19 @@ public class Player : MonoBehaviour
     public float GetLastXDirection()
     {
         return lastXDirection;
+    }
+
+    public void Dead()
+    {
+       isAlive = false;
+        MainMenu mainMenu = FindObjectOfType<MainMenu>();
+        if (mainMenu != null)
+        {
+            mainMenu.DeathScreen();
+        }
+        else
+        {
+            Debug.LogError("MainMenu reference not found in the scene.");
+        } 
     }
 }

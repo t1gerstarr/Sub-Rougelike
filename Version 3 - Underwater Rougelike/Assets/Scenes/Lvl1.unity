@@ -6407,7 +6407,7 @@ GameObject:
   - component: {fileID: 148047627}
   - component: {fileID: 148047626}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Timer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9280,7 +9280,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d980a4bec0d6ee94782e492bd9e46b9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentTime: 0
+  bestTime: 0
   text: {fileID: 148047626}
+  player: {fileID: 865914347625542736}
 --- !u!114 &1835901145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9310,10 +9313,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -9469,6 +9472,17 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1844780465}
   m_SourcePrefab: {fileID: 100100000, guid: 6dee398ec30ea4a4a81a81c735b77361, type: 3}
+--- !u!114 &865914347625542736 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 956879059830948711, guid: 6dee398ec30ea4a4a81a81c735b77361, type: 3}
+  m_PrefabInstance: {fileID: 865914347625542735}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f0f36e2db1bb9e4ebccb01e452d2f49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -144,11 +144,6 @@ public class Enemies : MonoBehaviour
             {
                 playerscript.TakeDamage(10f);
                 damageDealt = true;
-
-                if (playerscript.playerHealth <= 0)
-                {
-                    playerscript.isAlive = false;
-                }
             }
 
             Destroy(gameObject, destroySpeed);

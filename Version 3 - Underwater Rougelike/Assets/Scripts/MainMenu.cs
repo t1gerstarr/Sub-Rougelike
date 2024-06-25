@@ -2,23 +2,51 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine.UI;
+using System;
+using System.Collections;
+using System.Collections.Generic;
 
 public class MainMenu : MonoBehaviour
 {
-    private Timer timer;
+    // Main Menu Variables
     [SerializeField] private TMP_Text bestTimeText;
     [SerializeField] private TMP_Text currentTimeText;
 
+    // Timer variables
+    private bool timerActive;
+    private float currentTime;
+    private float bestTime = 0f;
+    [SerializeField] private TMP_Text timerText;
+
+    private float topTime;
+
+    [SerializeField] public Player player;
+
     void Start()
     {
-        // Find and reference the Timer component
-        timer = FindObjectOfType<Timer>();
+        currentTime = 0;
+        StartTimer();
+    }
 
-        if (timer == null)
+    void Update()
+    {
+        if(timerActive)
         {
-            Debug.LogError("Timer reference not found in the scene.");
+            currentTime = currentTime + Time.deltaTime;
+        }
+
+        if(timerText != null)
+        {
+            TimeSpan time = TimeSpan.FromSeconds(currentTime);
+            timerText.text = time.Minutes.ToString() + ":" + time.Seconds.ToString() + ":" + time.Milliseconds.ToString();
+        }
+    
+        if(player.isAlive == false) 
+        {
+            StopTimer();
         }
     }
+
     public void GoToScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
@@ -30,19 +58,31 @@ public class MainMenu : MonoBehaviour
         Debug.Log("Application has Quit");
     }
 
+    // Timer 
+    public void StartTimer()
+    {
+        timerActive = true;
+    }
+
+    public void StopTimer()
+    {
+        if(currentTime > bestTime)
+        {
+            bestTime = currentTime;
+        }
+        timerActive = false;
+    }
+
+    public string FormatTime(float timeInSeconds)
+    {
+        TimeSpan time = TimeSpan.FromSeconds(timeInSeconds);
+        return string.Format("{0:D2}:{1:D2}:{2:D3}", time.Minutes, time.Seconds, time.Milliseconds);
+    }
+
     public void DeathScreen()
     {
-        Debug.Log("DeathScreen called");
 
-        if(timer != null)
-        {
-            Debug.Log("Updating UI");
-            bestTimeText.text = "Longest Time Alive: " + timer.FormatTime(timer.bestTime);
-            currentTimeText.text = "Time Alive: " + timer.FormatTime(timer.currentTime);
-        }
-        else
-        {
-            Debug.Log("Timer is null");
-        }
+        bestTimeText.text = "Best Time: " + FormatTime(bestTime);
+        currentTimeText.text = "Current Time: " + FormatTime(currentTime);
     }
 }

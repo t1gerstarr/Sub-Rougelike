@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
+using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -23,6 +24,8 @@ public class Player : MonoBehaviour
     [SerializeField] Transform bubbleGun;
 
     private float lastXDirection;
+
+    private HealthBar healthBar;
     
     
     void Start()
@@ -33,6 +36,10 @@ public class Player : MonoBehaviour
         playerSprite = GetComponent<SpriteRenderer>();
 
         myRigidBody2D.freezeRotation = true;
+
+        //Healthbar initialisaton
+        healthBar = FindObjectOfType<HealthBar>();
+
     }
 
     void FixedUpdate()
@@ -60,7 +67,7 @@ public class Player : MonoBehaviour
         }
         else if (!isAlive)
         {
-            Dead();
+            OnPlayerDeath();
         }
     }
 
@@ -116,17 +123,12 @@ public class Player : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        playerHealth -= damage;
-        Debug.Log("Player Health: " + playerHealth);
-
-        if (playerHealth <= 0)
+        if(healthBar != null)
         {
-            isAlive = false;
-            animator.SetTrigger("isDead");
+            healthBar.TakeDamage(damage);
         }
 
-        // trigger damage animation
-        if (!isDamaged)
+        if(!isDamaged)
         {
             StartCoroutine(TriggerDamageAnimation());
         }
@@ -141,14 +143,17 @@ public class Player : MonoBehaviour
         isDamaged = false;
     }
 
+    public void OnPlayerDeath()
+    {
+        isAlive = false;
+        animator.SetTrigger("isDead");
+        SceneManager.LoadScene("Deathscreen");
+    }
+
     public float GetLastXDirection()
     {
         return lastXDirection;
     }
 
-    public void Dead()
-    {
-       isAlive = false;
-        SceneManager.LoadScene("DeathScreen");
-    }
+    
 }

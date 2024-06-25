@@ -149,14 +149,6 @@ public class Player : MonoBehaviour
     public void Dead()
     {
        isAlive = false;
-        MainMenu mainMenu = FindObjectOfType<MainMenu>();
-        if (mainMenu != null)
-        {
-            mainMenu.DeathScreen();
-        }
-        else
-        {
-            Debug.LogError("MainMenu reference not found in the scene.");
-        } 
+        SceneManager.LoadScene("DeathScreen");
     }
 }

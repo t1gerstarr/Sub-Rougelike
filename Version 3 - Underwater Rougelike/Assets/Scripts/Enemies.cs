@@ -52,7 +52,7 @@ public class Enemies : MonoBehaviour
         }
 
         // Start coroutine to wait before following player
-        StartCoroutine(WaitBeforeFollowing()); 
+        followPlayer = true;
     }
 
     // Update is called once per frame
@@ -65,9 +65,8 @@ public class Enemies : MonoBehaviour
         }
     }
 
-    IEnumerator WaitBeforeFollowing()
+    public void StartFollowing()
     {
-        yield return new WaitForSeconds(2);
         followPlayer = true;
     }
 

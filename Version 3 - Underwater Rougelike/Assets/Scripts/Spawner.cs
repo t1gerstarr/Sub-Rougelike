@@ -36,7 +36,8 @@ public class Spawner : MonoBehaviour
             int rand = Random.Range(0, enemyPrefabs.Length);
             GameObject enemyToSpawn = enemyPrefabs[rand];
 
-            Instantiate(enemyToSpawn, transform.position, Quaternion.identity);
+            GameObject spawnedEnemy = Instantiate(enemyToSpawn, transform.position, Quaternion.identity);
+            spawnedEnemy.GetComponent<Enemies>().StartFollowing();
         }
     }
 
@@ -79,9 +80,9 @@ public class Spawner : MonoBehaviour
         foreach (GameObject enemy in allEnemies)
         {
             Destroy(enemy);
-            canSpawn = false;
         }
 
+        canSpawn = false;
         Debug.Log("All enemies destroyed due to player absence.");
     }
 }

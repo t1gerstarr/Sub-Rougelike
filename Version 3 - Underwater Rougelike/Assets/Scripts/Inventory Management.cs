@@ -15,8 +15,10 @@ public class InventoryManagement : MonoBehaviour
 
         for (int i = 0; i < slots.Length; i++)
         {
-            items[i] = -1; // Begins with no items
+            items[i] = 0; // Begins with no items
         }
+
+        UpdateInventoryUI();
     }
 
     public void AddItem(int slotIndex, int itemID)
@@ -24,14 +26,11 @@ public class InventoryManagement : MonoBehaviour
         if (slotIndex >= 0 && slotIndex < slots.Length)
         {
             items[slotIndex] = itemID;
-            Item item = itemDatabase.GetItemByID(itemID);
-
-            if (item != null)
-            {
-                Image slotImage = slots[slotIndex].GetComponent<Image>();
-                slotImage.sprite = item.itemIcon;
-                slotImage.color = Color.white;
-            }
+            UpdateInventoryUI();
+        }
+        else
+        {
+            Debug.LogError($"Slot index '{slotIndex}' is out of bounds.");
         }
     }
 
@@ -40,9 +39,35 @@ public class InventoryManagement : MonoBehaviour
         if (slotIndex >= 0 && slotIndex < slots.Length)
         {
             items[slotIndex] = -1;
-            Image slotImage = slots[slotIndex].GetComponent<Image>();
-            slotImage.sprite = null;
-            slotImage.color = new Color(1, 1, 1, 0); // Makes the slot transparent
+            UpdateInventoryUI();
+        }
+    }
+
+    private void UpdateInventoryUI()
+    {
+        for (int i = 0; i < slots.Length; i++)
+        {
+            Image slotImage = slots[i].GetComponent<Image>();
+            if (items[i] != -1)
+            {
+                Item item = itemDatabase.GetItemByID(items[i]);
+                if (item != null)
+                {
+                    slotImage.sprite = item.itemIcon;
+                    slotImage.color = Color.white;
+                }
+                else
+                {
+                    Debug.LogError($"Item with ID '{items[i]}' not found in the database");
+                    slotImage.sprite = null;
+                    slotImage.color = new Color(1, 1, 1, 0);
+                }
+            }
+            else
+            {
+                slotImage.sprite = null;
+                slotImage.color = new Color(1, 1, 1, 0);
+            }
         }
     }
 }

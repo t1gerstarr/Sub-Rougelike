@@ -15,7 +15,7 @@ public class InventoryManagement : MonoBehaviour
 
         for (int i = 0; i < slots.Length; i++)
         {
-            items[i] = 0; // Begins with no items
+            items[i] = -1; // Begins with no items
         }
 
         UpdateInventoryUI();
@@ -47,26 +47,42 @@ public class InventoryManagement : MonoBehaviour
     {
         for (int i = 0; i < slots.Length; i++)
         {
-            Image slotImage = slots[i].GetComponent<Image>();
-            if (items[i] != -1)
+            Transform itemIconTransform = slots[i].transform.Find("ItemIcon");
+            if (itemIconTransform != null)
             {
-                Item item = itemDatabase.GetItemByID(items[i]);
-                if (item != null)
+                Image itemIconImage = itemIconTransform.GetComponent<Image>();
+                if (itemIconImage != null)
                 {
-                    slotImage.sprite = item.itemIcon;
-                    slotImage.color = Color.white;
+                    if (items[i] != -1)
+                    {
+                        Item item = itemDatabase.GetItemByID(items[i]);
+                        if (item != null)
+                        {
+                            itemIconImage.sprite = item.itemIcon;
+                            itemIconImage.color = Color.white; // Ensure the image is visible
+                            Debug.Log($"Updated slot '{slots[i].name}' with item '{item.itemName}' (ID: {items[i]})");
+                        }
+                        else
+                        {
+                            Debug.LogError($"Item with ID '{items[i]}' not found in the database.");
+                            itemIconImage.sprite = null;
+                            itemIconImage.color = new Color(1, 1, 1, 0); // Make the item icon transparent
+                        }
+                    }
+                    else
+                    {
+                        itemIconImage.sprite = null;
+                        itemIconImage.color = new Color(1, 1, 1, 0); // Make the item icon transparent
+                    }
                 }
                 else
                 {
-                    Debug.LogError($"Item with ID '{items[i]}' not found in the database");
-                    slotImage.sprite = null;
-                    slotImage.color = new Color(1, 1, 1, 0);
+                    Debug.LogError($"Image component not found on ItemIcon child of slot '{slots[i].name}'.");
                 }
             }
             else
             {
-                slotImage.sprite = null;
-                slotImage.color = new Color(1, 1, 1, 0);
+                Debug.LogError($"ItemIcon child not found in slot '{slots[i].name}'.");
             }
         }
     }

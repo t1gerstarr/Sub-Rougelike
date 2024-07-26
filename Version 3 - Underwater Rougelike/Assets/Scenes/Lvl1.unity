@@ -6866,11 +6866,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slots:
-  - {fileID: 644474937}
-  - {fileID: 178948784}
-  - {fileID: 881060091}
-  - {fileID: 131066333}
   - {fileID: 626138608}
+  - {fileID: 131066333}
+  - {fileID: 881060091}
+  - {fileID: 178948784}
+  - {fileID: 644474937}
 --- !u!4 &326178440
 Transform:
   m_ObjectHideFlags: 0

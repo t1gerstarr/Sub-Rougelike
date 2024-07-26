@@ -3,21 +3,21 @@ using UnityEngine;
 
 public class InventoryManagement : MonoBehaviour
 {
-    public GameObject[] slots; // Creates the array of slots for items
-    private int[] items; // Stores the Items ID's
-    private ItemDatabase itemDatabase; // reference to the ItemDataBase script
+    public GameObject[] slots; // Array of slots
+    private int[] items; // Array to store item IDs
+    private ItemDatabase itemDatabase; // Reference to the ItemDatabase
 
     void Start()
     {
-        itemDatabase = GameObject.FindObjectOfType<ItemDatabase>(); // finds the itemdatabase in the scene
+        itemDatabase = GameObject.FindObjectOfType<ItemDatabase>();
 
         items = new int[slots.Length];
-
         for (int i = 0; i < slots.Length; i++)
         {
-            items[i] = -1; // Begins with no items
+            items[i] = -1; // Initialize with no item
         }
 
+        // Update inventory UI upon load
         UpdateInventoryUI();
     }
 
@@ -25,8 +25,8 @@ public class InventoryManagement : MonoBehaviour
     {
         if (slotIndex >= 0 && slotIndex < slots.Length)
         {
-            items[slotIndex] = itemID;
-            UpdateInventoryUI();
+            items[slotIndex] = itemID; // Assign the itemID to the specific slot
+            UpdateInventoryUI(); // Update the UI to reflect the change
         }
         else
         {
@@ -38,8 +38,8 @@ public class InventoryManagement : MonoBehaviour
     {
         if (slotIndex >= 0 && slotIndex < slots.Length)
         {
-            items[slotIndex] = -1;
-            UpdateInventoryUI();
+            items[slotIndex] = -1; // Remove the item from the specific slot
+            UpdateInventoryUI(); // Update the UI to reflect the change
         }
     }
 

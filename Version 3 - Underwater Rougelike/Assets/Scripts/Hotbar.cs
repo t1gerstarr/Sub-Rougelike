@@ -1,13 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 [System.Serializable]
 public class Hotbar : MonoBehaviour
 {
     public GameObject[] slots;
-    public Item[] items;
     public Text descriptionText;
     private int currentSlotIndex;
 
@@ -40,23 +40,25 @@ public class Hotbar : MonoBehaviour
 
     void UpdateHotbarUI()
     {
-        for (int i = 0; i < slots.Length; i++)
+       for (int i = 0; i < slots.Length; i++)
         {
             Transform itemIconTransform = slots[i].transform.Find("ItemIcon");
             if (itemIconTransform != null)
             {
                 Image itemIconImage = itemIconTransform.GetComponent<Image>();
+                Item item = itemIconTransform.GetComponent<Item>();
+
                 if (itemIconImage != null)
                 {
-                    if (items[i] != null)
+                    if (item != null)
                     {
-                        itemIconImage.sprite = items[i].itemIcon;
+                        itemIconImage.sprite = item.itemIcon;
                         itemIconImage.color = Color.white;
                     }
                     else
                     {
                         itemIconImage.sprite = null;
-                        itemIconImage.color = new Color(1, 1, 1, 0);
+                        itemIconImage.color = Color.clear;
                     }
                 }
             }
@@ -65,13 +67,19 @@ public class Hotbar : MonoBehaviour
 
     public void ShowItemDescription(int slotIndex)
     {
-        if (slotIndex >= 0 && slotIndex < items.Length && items[slotIndex] != null)
+        if (slotIndex >= 0 && slotIndex < slots.Length)
         {
-            descriptionText.text = items[slotIndex].itemDescription;
-        }
-        else
-        {
-            descriptionText.text = "";
+            Transform itemIconTransform = slots[slotIndex].transform.Find("ItemIcon");
+            Item item = itemIconTransform.GetComponent<Item>();
+
+            if (item != null)
+            {
+                descriptionText.text = item.itemDescription;
+            }
+            else
+            {
+                descriptionText.text = "";
+            }
         }
     }
 }

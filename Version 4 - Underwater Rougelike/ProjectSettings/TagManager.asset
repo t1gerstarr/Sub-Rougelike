@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Enemies
+  - ExploFish
+  - LvlBorder
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - LevelBorder
+  - Water
+  - UI
+  - Enemies
+  - Bubbles
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: WaterBG
+    uniqueID: 1449844765
+    locked: 0
+  - name: CaveBG
+    uniqueID: 2449054789
+    locked: 0
+  - name: Level Borders
+    uniqueID: 4091767641
+    locked: 0
+  - name: Enemies
+    uniqueID: 913872107
+    locked: 0
+  - name: Player
+    uniqueID: 4210769181
+    locked: 0

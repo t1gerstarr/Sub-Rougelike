@@ -6395,6 +6395,52 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &68199130
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 68199132}
+  - component: {fileID: 68199131}
+  m_Layer: 0
+  m_Name: ItemAssigner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &68199131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 68199130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db1d7dcbb4786c941beba57415914e06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hotbar: {fileID: 936253475}
+  yoursprite: {fileID: 0}
+--- !u!4 &68199132
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 68199130}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 744.9201, y: 439.89172, z: 1.867884}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &148047625
 GameObject:
   m_ObjectHideFlags: 0
@@ -8424,8 +8470,7 @@ MonoBehaviour:
   itemID: 0
   itemName: Compressed Bubbles
   itemIcon: {fileID: 674772914, guid: fe88df0b3bb1aa84393dd1256f982ae9, type: 3}
-  itemDescription: Compressed Air Bubbles that can shoot fowards at a medium rate
-    and deal 5 damage.
+  itemDescription: 
 --- !u!1 &1470108613
 GameObject:
   m_ObjectHideFlags: 0
@@ -10359,12 +10404,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 936253472}
     m_Modifications:
     - target: {fileID: 1021076411983452255, guid: be652b4224d217a4f8f9b8390d60f9af, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1021076411983452255, guid: be652b4224d217a4f8f9b8390d60f9af, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 1021076411983452255, guid: be652b4224d217a4f8f9b8390d60f9af, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 6.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1021076411983452255, guid: be652b4224d217a4f8f9b8390d60f9af, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -21
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1977309385757009447, guid: be652b4224d217a4f8f9b8390d60f9af, type: 3}
       propertyPath: m_LocalScale.x
@@ -10548,3 +10601,4 @@ SceneRoots:
   - {fileID: 1835901148}
   - {fileID: 595375948}
   - {fileID: 1616022601}
+  - {fileID: 68199132}

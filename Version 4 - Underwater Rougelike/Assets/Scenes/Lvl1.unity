@@ -198,7 +198,7 @@ TilemapRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
-  m_ChunkCullingBounds: {x: 0.03333336, y: 0.03333336, z: 0}
+  m_ChunkCullingBounds: {x: 2, y: 1.5, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
@@ -5807,9 +5807,9 @@ Tilemap:
   - first: {x: -2, y: 7, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 0
-      m_TileSpriteIndex: 0
-      m_TileMatrixIndex: 0
+      m_TileIndex: 3
+      m_TileSpriteIndex: 3
+      m_TileMatrixIndex: 1
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
@@ -6336,21 +6336,25 @@ Tilemap:
       m_AllTileFlags: 1073741825
   m_AnimatedTiles: {}
   m_TileAssetArray:
-  - m_RefCount: 187
+  - m_RefCount: 186
     m_Data: {fileID: 11400000, guid: 9fe8adc19f1bfe24abe65f795686c876, type: 2}
   - m_RefCount: 192
     m_Data: {fileID: 11400000, guid: 41d6db9276e36764d9ab10cd645f5dfd, type: 2}
   - m_RefCount: 233
     m_Data: {fileID: 11400000, guid: 6c6c6586772d70c4bb0bc839446f6091, type: 2}
+  - m_RefCount: 1
+    m_Data: {fileID: 11400000, guid: 6fa16a9c52570b046834ab6f08815a39, type: 2}
   m_TileSpriteArray:
-  - m_RefCount: 187
+  - m_RefCount: 186
     m_Data: {fileID: 698173229, guid: 1291332cf12f072409f17b4e2f19c4be, type: 3}
   - m_RefCount: 192
     m_Data: {fileID: 21300032, guid: 1291332cf12f072409f17b4e2f19c4be, type: 3}
   - m_RefCount: 233
     m_Data: {fileID: 21300034, guid: 1291332cf12f072409f17b4e2f19c4be, type: 3}
+  - m_RefCount: 1
+    m_Data: {fileID: 21300004, guid: 9b722ddbaa4b73440a0f9c11af2cbe75, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 612
+  - m_RefCount: 611
     m_Data:
       e00: 1
       e01: 0
@@ -6358,6 +6362,24 @@ Tilemap:
       e03: 0
       e10: 0
       e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+  - m_RefCount: 1
+    m_Data:
+      e00: -1
+      e01: 0.00000008742278
+      e02: 0
+      e03: 0
+      e10: -0.00000008742278
+      e11: -1
       e12: 0
       e13: 0
       e20: 0
